@@ -1,4 +1,4 @@
-<%- include('partials/header', { title: 'Edit User' }) %>
+<%- include('../partials/header', { title: 'Edit User' }) %>
 
 <h1>Edit User</h1>
 <form action="/users/<%= user.id %>/edit" method="post">
@@ -9,4 +9,4 @@
 </form>
 <a href="/users">Back</a>
 
-<%- include('partials/footer') %>
+<%- include('../partials/footer') %>

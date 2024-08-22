@@ -5,12 +5,12 @@ const User = require('../models/user');
 // Mostrar todos los usuarios
 router.get('/', async (req, res) => {
     const users = await User.findAll();
-    res.render('index', { users });
+    res.render('users/index', { users });
 });
 
 // Mostrar el formulario de creación
 router.get('/create', (req, res) => {
-    res.render('create');
+    res.render('users/create');
 });
 
 // Crear un nuevo usuario
@@ -23,13 +23,13 @@ router.post('/create', async (req, res) => {
 // Mostrar un usuario por ID
 router.get('/:id', async (req, res) => {
     const user = await User.findByPk(req.params.id);
-    res.render('show', { user });
+    res.render('users/show', { user });
 });
 
 // Mostrar el formulario de edición
 router.get('/:id/edit', async (req, res) => {
     const user = await User.findByPk(req.params.id);
-    res.render('edit', { user });
+    res.render('users/edit', { user });
 });
 
 // Actualizar un usuario

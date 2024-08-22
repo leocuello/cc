@@ -1,0 +1,39 @@
+<%- include('../partials/header', { title: 'Users' }) %>
+<header>
+    <h1>Usuarios</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/users">Home</a></li>
+          <li class="breadcrumb-item"><a href="/users/create">Nuevo usuario</a></li>
+        </ol>
+      </nav>
+      
+</header>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Elimiar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% users.forEach(user => { %>
+
+            <tr>
+                <th scope="row"><%= user.id %></th>
+                <td><%= user.name %></td>
+                <td><a href="/users/<%= user.id %>/edit">Edit</a></td>
+                <td>     
+                    <form action="/users/<%= user.id %>/delete" method="post" style="display:inline;">
+                        <button type="submit">Elimiar</button>
+                    </form>
+                </td>
+              </tr>
+        <% }) %>
+    </tbody>
+  </table>
+
+<%- include('../partials/footer') %>

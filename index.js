@@ -4,6 +4,9 @@ const ejs = require('ejs');
 const sequelize = require('./config/database');
 const User = require('./models/user');
 const userRoutes = require('./routes/userRoutes');
+const conferenceRoutes = require('./routes/conferenceRoutes');
+const rolesRoutes = require('./routes/rolesRoutes');
+
 
 const app = express();
 
@@ -13,6 +16,7 @@ app.set('views', './views');
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/node_modules', express.static('node_modules'));
 
 // Sincronizar la base de datos
 sequelize.sync().then(() => {
@@ -23,6 +27,9 @@ sequelize.sync().then(() => {
 
 // Rutas
 app.use('/users', userRoutes);
+app.use('/conference', conferenceRoutes);
+app.use('/roles', rolesRoutes);
+
 
 // Iniciar el servidor
 app.listen(3000, () => {
