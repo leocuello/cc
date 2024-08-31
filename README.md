@@ -7,7 +7,7 @@ npm install
 
 ## Pre Requisito a ejecutar
 Instalar docker y docker-compose y ejecuar el siguiente comando para la BD   
-La BD (MYSQ) levanta en el puerto 3306
+La BD (MYSQ) levanta en el puerto 3306  
 El cliente de BD (PHPMYAMDIN) en http://localhost:8090/ 
 
 BAJAR
